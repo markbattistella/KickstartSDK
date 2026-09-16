@@ -15,6 +15,12 @@
             "value" : "À propos de cette annonce"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于此广告"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35,6 +41,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annonce"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "广告"
           }
         },
         "zh-Hant" : {
@@ -59,6 +71,12 @@
             "value" : "Annonce : %1$@. %2$@"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "广告：%1$@。%2$@"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -79,6 +97,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annonceur"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "广告主"
           }
         },
         "zh-Hant" : {
@@ -103,6 +127,12 @@
             "value" : "Disponibilité sur l’App Store"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Store 上架情况"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -123,6 +153,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lien App Store rompu"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Store 链接失效"
           }
         },
         "zh-Hant" : {
@@ -147,6 +183,12 @@
             "value" : "Vérifiez votre connexion, puis réessayez."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请检查网络连接后重试。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -167,6 +209,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choisir un autre motif"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择其他原因"
           }
         },
         "zh-Hant" : {
@@ -191,6 +239,12 @@
             "value" : "Choisissez le motif qui décrit le mieux le problème."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择最符合问题情况的原因。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -211,6 +265,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
           }
         },
         "zh-Hant" : {
@@ -235,6 +295,12 @@
             "value" : "Obtenir"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -255,6 +321,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtenir %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取 %@"
           }
         },
         "zh-Hant" : {
@@ -279,6 +351,12 @@
             "value" : "Contenu inapproprié"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内容不当"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -299,6 +377,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contenu trompeur"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内容具有误导性"
           }
         },
         "zh-Hant" : {
@@ -323,6 +407,12 @@
             "value" : "Kickstart Exchange ne vous suit pas à la trace, pas plus que votre appareil."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kickstart Exchange 不会跟踪你或你的设备。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -343,6 +433,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun signalement n’a été enregistré."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未保存任何举报记录。"
           }
         },
         "zh-Hant" : {
@@ -367,6 +463,12 @@
             "value" : "Ouvre l’App Store"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 App Store"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -387,6 +489,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autre"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
           }
         },
         "zh-Hant" : {
@@ -411,6 +519,12 @@
             "value" : "Confidentialité"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐私"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -431,6 +545,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signaler"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "举报"
           }
         },
         "zh-Hant" : {
@@ -455,6 +575,12 @@
             "value" : "Signalement non envoyé"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "举报未发送"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -475,6 +601,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signalement envoyé"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "举报已发送"
           }
         },
         "zh-Hant" : {
@@ -499,6 +631,12 @@
             "value" : "Signaler cette annonce"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "举报此广告"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -519,6 +657,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Envoi du signalement…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在发送举报…"
           }
         },
         "zh-Hant" : {
@@ -543,6 +687,12 @@
             "value" : "Affiche des informations sur cette annonce"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示此广告的相关信息"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -563,6 +713,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annonce de test"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "测试广告"
           }
         },
         "zh-Hant" : {
@@ -587,6 +743,12 @@
             "value" : "Signalement de test terminé"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "测试举报已完成"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -607,6 +769,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Merci. Nous allons l’examiner."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谢谢，我们会审核此举报。"
           }
         },
         "zh-Hant" : {
@@ -631,6 +799,12 @@
             "value" : "L’app que vous utilisez"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你正在使用的 App"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -651,6 +825,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cette annonce repose sur"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此广告的展示依据"
           }
         },
         "zh-Hant" : {
@@ -675,6 +855,12 @@
             "value" : "Ceci est une annonce de test, affichée parce que l’app est lancée depuis Xcode ou le simulateur. Elle confirme que l’intégration de Kickstart Exchange fonctionne, et aucun annonceur n’est facturé. Les véritables annonces apparaîtront une fois l’app publiée sur l’App Store."
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这是一条测试广告，因为 App 正通过 Xcode 或模拟器运行而显示。这表明 Kickstart Exchange 已成功集成，且不会向任何广告主收费。App 在 App Store 发布后，就会显示正式广告。"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -697,6 +883,12 @@
             "value" : "Réessayer"
           }
         },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重试"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -717,6 +909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La plateforme de votre appareil"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的设备平台"
           }
         },
         "zh-Hant" : {
