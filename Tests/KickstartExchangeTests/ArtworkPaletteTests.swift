@@ -32,6 +32,7 @@ struct ArtworkPaletteTests {
         (0.1, 0.05, 0.2),
     ]
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("Sampling an icon fills the whole mesh grid")
     func samplingFillsTheGrid() throws {
         let palette = try #require(
@@ -64,6 +65,7 @@ struct ArtworkPaletteTests {
         }
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test(
         "Every icon stays legible behind primary text",
         arguments: [ColorScheme.dark, ColorScheme.light]
@@ -93,6 +95,7 @@ struct ArtworkPaletteTests {
         }
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("Vivid artwork is calmed to the saturation ceiling")
     func vividArtworkIsCalmed() throws {
         let palette = try #require(ExchangeAdArtworkPalette(icon: icon(red: 0, green: 1, blue: 0)))
@@ -108,6 +111,7 @@ struct ArtworkPaletteTests {
         }
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("A flat icon still gains depth from top to bottom")
     func flatIconGainsDepth() throws {
         let palette = try #require(
@@ -143,6 +147,7 @@ struct ArtworkPaletteTests {
 
     /// Returns the WCAG contrast ratio between a background and a text
     /// luminance, where white text is `1` and black text is `0`.
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     private func contrastRatio(
         of background: Color.Resolved,
         against textLuminance: Double

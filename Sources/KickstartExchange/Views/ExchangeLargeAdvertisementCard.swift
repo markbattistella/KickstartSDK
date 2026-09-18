@@ -18,6 +18,7 @@ import SwiftUI
 
 /// Displays an advertised app across a large, self-contained card suitable for
 /// a sheet, a full screen cover, or a slot in scrolling content.
+@available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 struct ExchangeLargeAdvertisementCard: View {
     let appName: String
     let subtitle: String?

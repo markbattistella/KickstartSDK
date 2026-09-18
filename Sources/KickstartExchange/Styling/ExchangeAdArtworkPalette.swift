@@ -181,6 +181,7 @@ struct ExchangeAdArtworkPalette: Equatable, Sendable {
     /// Returns the mesh gradient colors for a color scheme.
     ///
     /// - Parameter colorScheme: The color scheme the advertisement is shown in.
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     func meshColors(for colorScheme: ColorScheme) -> [Color.Resolved] {
         let conditioning = Self.conditioning(for: colorScheme)
         let band = conditioning.brightnessBand
@@ -231,6 +232,7 @@ struct ExchangeAdArtworkPalette: Equatable, Sendable {
     }
 
     /// Converts hue, saturation, and brightness back into a concrete color.
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     static func resolved(
         hue: Double,
         saturation: Double,

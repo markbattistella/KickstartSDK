@@ -19,6 +19,7 @@ import SwiftUI
 
 /// Wraps a large advertisement for presentation, marking its placement so the
 /// card offers a close action and reports its own visibility.
+@available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 struct ExchangeLargeAdPresentation: View {
     let apiKey: String
 
@@ -50,6 +51,7 @@ struct ExchangeLargeAdPresentation: View {
 
 /// Presents a large advertisement, carrying the presenting view's Dynamic Type
 /// size across the presentation boundary.
+@available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 private struct ExchangeAdPresentationModifier: ViewModifier {
     @Binding var isPresented: Bool
     let apiKey: String
@@ -84,6 +86,7 @@ private struct ExchangeAdPresentationModifier: ViewModifier {
     }
 }
 
+@available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 extension View {
     /// Presents a large Kickstart Exchange advertisement in a sheet.
     ///

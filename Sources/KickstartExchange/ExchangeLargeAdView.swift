@@ -16,6 +16,7 @@ import SwiftUI
 ///
 /// Every advert in one app process run shows the same advertised app and shares
 /// a single impression, exactly like ``ExchangeBannerAdView``.
+@available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 public struct ExchangeLargeAdView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.scenePhase) private var scenePhase
@@ -125,6 +126,7 @@ public struct ExchangeLargeAdView: View {
     }
 }
 
+@available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 #Preview("Inline") {
     ScrollView {
         VStack {
@@ -142,6 +144,7 @@ public struct ExchangeLargeAdView: View {
     }
 }
 
+@available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 #Preview("Presented") {
     ExchangeLargeAdPresentation(apiKey: "preview")
 }
