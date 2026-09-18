@@ -14,6 +14,7 @@ import Testing
 @MainActor
 @Suite("Advertisement lifecycle")
 struct ViewModelTests {
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("Preview loads without sessions or accounting")
     func previewAdvert() async throws {
         let handler = MockRequestHandler([
@@ -44,6 +45,7 @@ struct ViewModelTests {
         #expect(requests[2].url?.absoluteString == TestFixtures.previewClickURL)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("A failed preview click still returns the direct store URL")
     func failedPreviewClickUsesFallback() async throws {
         let handler = MockRequestHandler([
@@ -63,6 +65,7 @@ struct ViewModelTests {
         #expect(model.isOpeningStore == false)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("Preview reports exercise the API without a live serve")
     func previewReport() async throws {
         let handler = MockRequestHandler([
@@ -88,6 +91,7 @@ struct ViewModelTests {
         #expect(body["reason"] as? String == "other")
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("Preview is unavailable in shipping builds")
     func shippingPreviewIsUnavailable() async {
         let handler = MockRequestHandler([])
@@ -106,6 +110,7 @@ struct ViewModelTests {
         #expect(diagnostic.contains("preview key is available only"))
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("A valid session, ad, and artwork become ready after one load")
     func readyState() async {
         let handler = readyHandler()
@@ -118,6 +123,7 @@ struct ViewModelTests {
         #expect(await handler.requests().count == 3)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("Every banner in one app run reuses the same advert")
     func bannersReuseAdvert() async {
         let handler = readyHandler()
@@ -139,6 +145,7 @@ struct ViewModelTests {
         #expect(await handler.requests().count == 3)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("A tap records quietly before returning the store URL and ignores repeats")
     func tapRecordsBeforeOpeningStore() async throws {
         let handler = readyHandler(
@@ -172,6 +179,7 @@ struct ViewModelTests {
             })
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("Visibility must remain continuous for a full second")
     func interruptedVisibility() async throws {
         let handler = readyHandler(
@@ -197,6 +205,7 @@ struct ViewModelTests {
         #expect(body["impression_token"] as? String == TestFixtures.impressionToken)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("All banners in one app run share one impression delivery")
     func bannersShareImpression() async {
         let handler = readyHandler(
@@ -227,6 +236,7 @@ struct ViewModelTests {
         #expect(await handler.requests().count == 4)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("An accepted report suppresses every banner for the app run")
     func reportSuppressesAllBanners() async {
         let handler = readyHandler(
@@ -255,6 +265,7 @@ struct ViewModelTests {
         #expect(await handler.requests().count == 4)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("A failed report leaves the shared advert visible")
     func failedReportRemainsVisible() async {
         let handler = readyHandler(
@@ -282,6 +293,7 @@ struct ViewModelTests {
             ] + additional, suspendedRequestNumber: suspendedRequestNumber)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     private func makeModel(
         apiKey: String = TestFixtures.apiKey,
         handler: MockRequestHandler,

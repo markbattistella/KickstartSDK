@@ -15,6 +15,7 @@ import Testing
 @Suite("Advertisement presentation layout")
 @MainActor
 struct PresentationLayoutTests {
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("The card adapts its height at narrow widths")
     func narrowCardAdaptsItsHeight() {
         let regularSize = cardSize(width: 320)
@@ -25,6 +26,7 @@ struct PresentationLayoutTests {
         #expect(narrowSize.height > regularSize.height)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("The large card reserves its minimum height")
     func largeCardReservesMinimumHeight() {
         let size = largeCardSize(width: 390)
@@ -33,6 +35,7 @@ struct PresentationLayoutTests {
         #expect(size.height >= ExchangeAdLayoutMetrics.largeMinimumHeight)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     @Test("The large card grows rather than clipping enlarged text")
     func largeCardGrowsForLongCopy() {
         let regularSize = largeCardSize(width: 390)
@@ -41,6 +44,7 @@ struct PresentationLayoutTests {
         #expect(narrowSize.height >= regularSize.height)
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     private func largeCardSize(width: Double) -> CGSize {
         let card = ExchangeLargeAdvertisementCard(
             appName: "A Thirty Character App Name!",
@@ -58,6 +62,7 @@ struct PresentationLayoutTests {
         return NSHostingView(rootView: card).fittingSize
     }
 
+    @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
     private func cardSize(width: Double) -> CGSize {
         let card = ExchangeAdvertisementCard(
             appName: "A Thirty Character App Name!",

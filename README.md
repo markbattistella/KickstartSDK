@@ -52,6 +52,14 @@ if hasPremiumAccess == false {
 }
 ```
 
+If the app’s minimum OS version is below the supported versions, gate the same call:
+
+```swift
+if #available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *) {
+    ExchangeBannerAdView(apiKey: "ks_live_REPLACE_WITH_API_KEY")
+}
+```
+
 Real adverts are shown automatically when your app goes live. **Note:** Simulator doesn’t support previewing App Store links.
 
 ## Previewing and styling
