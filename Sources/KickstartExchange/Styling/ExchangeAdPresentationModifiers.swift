@@ -7,57 +7,25 @@
 
 import SwiftUI
 
-//
-// Note to reader: a sheet and a full screen cover take their traits
-// from the window rather than from the view that presented them, so a
-// Dynamic Type size the host app injected into its own hierarchy is
-// dropped at the presentation boundary. An inline advert inherits it
-// and a presented one would not, which is a strange way for the same
-// advert to behave. So we read the size on the presenting side and
-// hand it across ourselves.
-//
-
 /// Wraps a large advertisement for presentation, marking its placement so the
 /// card offers a close action.
 @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 struct ExchangeLargeAdPresentation: View {
     let apiKey: String
 
-    /// The Dynamic Type size to carry across the presentation boundary, or
-    /// `nil` to inherit whatever the surrounding context already provides.
-    ///
-    /// Forcing a size unconditionally would pin the advert wherever nothing
-    /// needs carrying — an Xcode preview's Dynamic Type variants, most
-    /// obviously — so the size is only applied when there is one to apply.
-    var dynamicTypeSize: DynamicTypeSize?
-
     var body: some View {
-        advertisement
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-
-    @ViewBuilder
-    private var advertisement: some View {
-        let advert = ExchangeLargeAdView(apiKey: apiKey)
+        ExchangeLargeAdView(apiKey: apiKey)
             .environment(\.exchangeAdPlacement, .presented)
-
-        if let dynamicTypeSize {
-            advert.dynamicTypeSize(dynamicTypeSize)
-        } else {
-            advert
-        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
-/// Presents a large advertisement, carrying the presenting view's Dynamic Type
-/// size across the presentation boundary.
+/// Presents a large advertisement in a sheet or a full screen cover.
 @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 private struct ExchangeAdPresentationModifier: ViewModifier {
     @Binding var isPresented: Bool
     let apiKey: String
     let usesFullScreenCover: Bool
-
-    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     func body(content: Content) -> some View {
         #if os(macOS)
@@ -79,10 +47,7 @@ private struct ExchangeAdPresentationModifier: ViewModifier {
     }
 
     private var advertisement: some View {
-        ExchangeLargeAdPresentation(
-            apiKey: apiKey,
-            dynamicTypeSize: dynamicTypeSize
-        )
+        ExchangeLargeAdPresentation(apiKey: apiKey)
     }
 }
 
