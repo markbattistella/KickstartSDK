@@ -87,7 +87,7 @@ private struct ExchangeAdPresentationModifier: ViewModifier {
 }
 
 @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
-extension View {
+public extension View {
     /// Presents a large Kickstart Exchange advertisement in a sheet.
     ///
     /// The advert carries its own close action, so people can always leave.
@@ -96,7 +96,7 @@ extension View {
     ///   - isPresented: Whether the advertisement is currently shown.
     ///   - apiKey: Your Exchange API key, or `"preview"` in a Debug build or
     ///     the Simulator to show the server-provided sample advert.
-    public func exchangeAdSheet(
+    func exchangeAdSheet(
         isPresented: Binding<Bool>,
         apiKey: String
     ) -> some View {
@@ -119,7 +119,7 @@ extension View {
     ///   - isPresented: Whether the advertisement is currently shown.
     ///   - apiKey: Your Exchange API key, or `"preview"` in a Debug build or
     ///     the Simulator to show the server-provided sample advert.
-    public func exchangeAdFullScreenCover(
+    func exchangeAdFullScreenCover(
         isPresented: Binding<Bool>,
         apiKey: String
     ) -> some View {

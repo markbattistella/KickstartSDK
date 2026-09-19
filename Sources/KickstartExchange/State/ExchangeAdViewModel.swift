@@ -23,8 +23,7 @@ final class ExchangeAdViewModel {
     @ObservationIgnored private let storefront: @Sendable () async -> String?
     @ObservationIgnored private let isDevelopment: Bool
     @ObservationIgnored private let isPreview: Bool
-    @ObservationIgnored private let impressionRetrySleep:
-        @Sendable (TimeInterval) async throws -> Void
+    @ObservationIgnored private let impressionRetrySleep: @Sendable (TimeInterval) async throws -> Void
     @ObservationIgnored private let diagnosticHandler: @MainActor (String) -> Void
     @ObservationIgnored private let appRunStore: ExchangeAdRunStore
     @ObservationIgnored private let appRunKey: ExchangeAdRunKey?
@@ -60,8 +59,7 @@ final class ExchangeAdViewModel {
         }
 
         guard let bundleIdentifier = Bundle.main.bundleIdentifier,
-            bundleIdentifier.isEmpty == false
-        else {
+              bundleIdentifier.isEmpty == false else {
             client = nil
             initialLoadFailure = .missingBundleIdentifier
             appRunKey = nil
@@ -69,8 +67,7 @@ final class ExchangeAdViewModel {
         }
 
         guard let appVersion = Self.bundleValue(named: "CFBundleShortVersionString"),
-            let buildVersion = Self.bundleValue(named: "CFBundleVersion")
-        else {
+              let buildVersion = Self.bundleValue(named: "CFBundleVersion") else {
             client = nil
             initialLoadFailure = .missingApplicationVersion
             appRunKey = nil
@@ -147,8 +144,7 @@ final class ExchangeAdViewModel {
         }
 
         guard let appVersion, appVersion.isEmpty == false,
-            let buildVersion, buildVersion.isEmpty == false
-        else {
+              let buildVersion, buildVersion.isEmpty == false else {
             client = nil
             initialLoadFailure = .missingApplicationVersion
             appRunKey = nil
@@ -228,8 +224,7 @@ final class ExchangeAdViewModel {
 
     func recordClick() async -> URL? {
         guard isOpeningStore == false,
-            let presentation = visiblePresentation
-        else {
+              let presentation = visiblePresentation else {
             return nil
         }
 
@@ -252,12 +247,11 @@ final class ExchangeAdViewModel {
 
     func submitReport(reason: ExchangeReportReason) async -> Bool {
         guard isDevelopment == false || isPreview,
-            let client,
-            let informationPresentation,
-            let serveID = informationPresentation.serveID,
-            let appRunState,
-            appRunState.isSuppressed == false
-        else {
+              let client,
+              let informationPresentation,
+              let serveID = informationPresentation.serveID,
+              let appRunState,
+              appRunState.isSuppressed == false else {
             return false
         }
 
@@ -295,11 +289,11 @@ final class ExchangeAdViewModel {
         }
 
         switch result {
-            case .unavailable:
-                return
-            case .advertisement(let presentation):
-                self.presentation = presentation
-                reevaluateViewability()
+        case .unavailable:
+            return
+        case .advertisement(let presentation):
+            self.presentation = presentation
+            reevaluateViewability()
         }
     }
 
@@ -346,11 +340,11 @@ final class ExchangeAdViewModel {
                 try Task.checkCancellation()
 
                 switch serveResult {
-                    case .advertisement(let advertisement):
-                        response = advertisement
-                    case .rejected(let reason):
-                        report(client.explanation(for: reason))
-                        return .unavailable
+                case .advertisement(let advertisement):
+                    response = advertisement
+                case .rejected(let reason):
+                    report(client.explanation(for: reason))
+                    return .unavailable
                 }
             }
 
@@ -358,8 +352,7 @@ final class ExchangeAdViewModel {
             try Task.checkCancellation()
 
             guard let source = CGImageSourceCreateWithData(data as CFData, nil),
-                let icon = CGImageSourceCreateImageAtIndex(source, 0, nil)
-            else {
+                  let icon = CGImageSourceCreateImageAtIndex(source, 0, nil) else {
                 throw ExchangeLoadFailure.artworkDownload
             }
 
@@ -403,9 +396,8 @@ final class ExchangeAdViewModel {
         }
 
         guard qualifiesForImpression,
-            let appRunKey,
-            appRunStore.hasStartedImpression(for: appRunKey) == false
-        else {
+              let appRunKey,
+              appRunStore.hasStartedImpression(for: appRunKey) == false else {
             stopViewabilityTimer()
             return
         }
@@ -422,9 +414,8 @@ final class ExchangeAdViewModel {
             }
 
             guard Task.isCancelled == false,
-                let self,
-                qualifiesForImpression
-            else {
+                  let self,
+                  qualifiesForImpression else {
                 return
             }
 
@@ -444,9 +435,8 @@ final class ExchangeAdViewModel {
     @discardableResult
     private func beginImpression() -> Task<Void, Never>? {
         guard let appRunKey,
-            let client,
-            let impressionToken = presentation?.impressionToken
-        else {
+              let client,
+              let impressionToken = presentation?.impressionToken else {
             return nil
         }
 
@@ -468,8 +458,7 @@ final class ExchangeAdViewModel {
                 } catch is CancellationError {
                     return
                 } catch let failure as ExchangeImpressionDeliveryFailure
-                    where failure == .transport || failure == .server
-                {
+                    where failure == .transport || failure == .server {
                     guard attempt < retryDelays.count else {
                         break
                     }
@@ -487,10 +476,9 @@ final class ExchangeAdViewModel {
             }
 
             if isDevelopment, Task.isCancelled == false {
-                diagnosticHandler(
-                    ExchangeEnvironment.formattedDiagnostic(
-                        "The test ad impression could not be recorded. Check the network connection and reload the test ad."
-                    ))
+                diagnosticHandler(ExchangeEnvironment.formattedDiagnostic(
+                    "The test ad impression could not be recorded. Check the network connection and reload the test ad."
+                ))
             }
         }
     }
@@ -502,8 +490,7 @@ final class ExchangeAdViewModel {
 
     private static func bundleValue(named name: String) -> String? {
         guard let value = Bundle.main.object(forInfoDictionaryKey: name) as? String,
-            value.isEmpty == false
-        else {
+              value.isEmpty == false else {
             return nil
         }
 

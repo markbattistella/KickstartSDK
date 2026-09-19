@@ -51,8 +51,8 @@ public struct ExchangeBannerAdView: View {
             subtitle: subtitle,
             icon: icon,
             isStoreEnabled: true,
-            openStore: {},
-            showInformation: {}
+            openStore: { },
+            showInformation: { }
         )
     }
     init(model: ExchangeAdViewModel) {
@@ -97,9 +97,7 @@ public struct ExchangeBannerAdView: View {
         .onScrollVisibilityChange(threshold: 0.5) { isVisible in
             model.setPlacementVisible(isVisible)
         }
-        .sheet(
-            isPresented: $model.isShowingInformation, onDismiss: model.informationSheetDidDismiss
-        ) {
+        .sheet(isPresented: $model.isShowingInformation, onDismiss: model.informationSheetDidDismiss) {
             if let presentation = model.informationPresentation {
                 ExchangeAdvertisementInfoView(
                     presentation: presentation,

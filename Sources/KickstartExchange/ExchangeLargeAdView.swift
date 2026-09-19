@@ -50,9 +50,9 @@ public struct ExchangeLargeAdView: View {
             palette: .preview,
             isStoreEnabled: true,
             showsCloseAction: false,
-            openStore: {},
-            showInformation: {},
-            close: {}
+            openStore: { },
+            showInformation: { },
+            close: { }
         )
     }
 

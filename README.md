@@ -123,7 +123,6 @@ Or present it, which adds a close action so people can always leave:
 
 Unlike the banner, a large advert is not tappable as a whole – only its Get button opens the App Store, so a mistimed tap near the close button cannot send someone to the store by accident.
 
-
 **Important:** This SDK is released under the MIT License, so you are free to inspect, modify, and redistribute it, including as part of your own service. However, only unmodified versions of this SDK may connect to the official Kickstart Exchange service. Modified versions may be blocked, and apps using them may be removed from Kickstart Exchange.
 
 ## Testing your integration

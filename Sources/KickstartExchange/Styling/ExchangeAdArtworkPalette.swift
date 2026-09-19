@@ -32,7 +32,6 @@ import SwiftUI
 /// A small grid of colors sampled from an advertised app's icon, conditioned so
 /// large advertisement backgrounds stay readable behind primary-colored text.
 struct ExchangeAdArtworkPalette: Equatable, Sendable {
-
     /// The number of samples taken along each axis of the icon.
     static let dimension = 3
 
@@ -111,16 +110,15 @@ struct ExchangeAdArtworkPalette: Equatable, Sendable {
         let dimension = Self.dimension
 
         guard let colorSpace = CGColorSpace(name: CGColorSpace.sRGB),
-            let context = CGContext(
-                data: nil,
-                width: dimension,
-                height: dimension,
-                bitsPerComponent: 8,
-                bytesPerRow: 0,
-                space: colorSpace,
-                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
-            )
-        else {
+              let context = CGContext(
+                  data: nil,
+                  width: dimension,
+                  height: dimension,
+                  bitsPerComponent: 8,
+                  bytesPerRow: 0,
+                  space: colorSpace,
+                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+              ) else {
             return nil
         }
 
@@ -174,7 +172,7 @@ struct ExchangeAdArtworkPalette: Equatable, Sendable {
             Sample(hue: 0.72, saturation: 0.55, brightness: 0.78),
             Sample(hue: 0.58, saturation: 0.45, brightness: 0.70),
             Sample(hue: 0.63, saturation: 0.50, brightness: 0.80),
-            Sample(hue: 0.74, saturation: 0.60, brightness: 0.72),
+            Sample(hue: 0.74, saturation: 0.60, brightness: 0.72)
         ]
     )
 
@@ -247,12 +245,12 @@ struct ExchangeAdArtworkPalette: Equatable, Sendable {
 
         let components: (red: Double, green: Double, blue: Double) =
             switch Int(sector) {
-                case 0: (brightness, rising, primary)
-                case 1: (falling, brightness, primary)
-                case 2: (primary, brightness, rising)
-                case 3: (primary, falling, brightness)
-                case 4: (rising, primary, brightness)
-                default: (brightness, primary, falling)
+            case 0: (brightness, rising, primary)
+            case 1: (falling, brightness, primary)
+            case 2: (primary, brightness, rising)
+            case 3: (primary, falling, brightness)
+            case 4: (rising, primary, brightness)
+            default: (brightness, primary, falling)
             }
 
         return Color.Resolved(

@@ -7,7 +7,6 @@
 
 import Foundation
 import Testing
-
 @testable import KickstartExchange
 
 /// Verifies advertisement loading, presentation, and interaction lifecycles.
@@ -20,12 +19,11 @@ struct ViewModelTests {
         let handler = MockRequestHandler([
             .success(TestFixtures.response(data: TestFixtures.previewResponse())),
             .success(TestFixtures.response(data: TestFixtures.validPNG)),
-            .success(
-                TestFixtures.response(
-                    data: Data(),
-                    statusCode: 302,
-                    headers: ["location": TestFixtures.previewStoreURL]
-                )),
+            .success(TestFixtures.response(
+                data: Data(),
+                statusCode: 302,
+                headers: ["location": TestFixtures.previewStoreURL]
+            ))
         ])
         let model = makeModel(
             apiKey: ExchangeAPIClient.previewAPIKey,
@@ -51,7 +49,7 @@ struct ViewModelTests {
         let handler = MockRequestHandler([
             .success(TestFixtures.response(data: TestFixtures.previewResponse())),
             .success(TestFixtures.response(data: TestFixtures.validPNG)),
-            .failure(URLError(.timedOut)),
+            .failure(URLError(.timedOut))
         ])
         let model = makeModel(
             apiKey: ExchangeAPIClient.previewAPIKey,
@@ -71,7 +69,7 @@ struct ViewModelTests {
         let handler = MockRequestHandler([
             .success(TestFixtures.response(data: TestFixtures.previewResponse())),
             .success(TestFixtures.response(data: TestFixtures.validPNG)),
-            .success(TestFixtures.response(data: Data(), statusCode: 204)),
+            .success(TestFixtures.response(data: Data(), statusCode: 204))
         ])
         let model = makeModel(
             apiKey: ExchangeAPIClient.previewAPIKey,
@@ -151,7 +149,7 @@ struct ViewModelTests {
         let handler = readyHandler(
             additional: [
                 .success(TestFixtures.completedClickResponse),
-                .success(TestFixtures.completedImpressionResponse),
+                .success(TestFixtures.completedImpressionResponse)
             ],
             suspendedRequestNumber: 4
         )
@@ -173,10 +171,9 @@ struct ViewModelTests {
         let storeURL = try #require(await clickTask.value)
         #expect(storeURL.absoluteString == TestFixtures.storeURL)
         #expect(model.isOpeningStore == false)
-        #expect(
-            await AsyncTestWaiter.until {
-                await handler.requests().count == 5
-            })
+        #expect(await AsyncTestWaiter.until {
+            await handler.requests().count == 5
+        })
     }
 
     @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
@@ -196,10 +193,9 @@ struct ViewModelTests {
         #expect(await handler.requests().count == 3)
 
         model.setPlacementVisible(true)
-        #expect(
-            await AsyncTestWaiter.until(timeout: .seconds(2)) {
-                await handler.requests().count == 4
-            })
+        #expect(await AsyncTestWaiter.until(timeout: .seconds(2)) {
+            await handler.requests().count == 4
+        })
         let request = try #require(await handler.requests().last)
         let body = try JSONRequestBody.object(from: request)
         #expect(body["impression_token"] as? String == TestFixtures.impressionToken)
@@ -228,10 +224,9 @@ struct ViewModelTests {
         secondModel.setSceneActive(true)
         secondModel.setPlacementVisible(true)
 
-        #expect(
-            await AsyncTestWaiter.until(timeout: .seconds(2)) {
-                await handler.requests().count == 4
-            })
+        #expect(await AsyncTestWaiter.until(timeout: .seconds(2)) {
+            await handler.requests().count == 4
+        })
         try? await Task.sleep(for: .milliseconds(100))
         #expect(await handler.requests().count == 4)
     }
@@ -285,12 +280,11 @@ struct ViewModelTests {
         additional: [Result<MockRequestHandler.Response, URLError>] = [],
         suspendedRequestNumber: Int? = nil
     ) -> MockRequestHandler {
-        MockRequestHandler(
-            [
-                .success(TestFixtures.response(data: TestFixtures.sessionResponse())),
-                .success(TestFixtures.response(data: TestFixtures.creativeResponse())),
-                .success(TestFixtures.response(data: TestFixtures.validPNG)),
-            ] + additional, suspendedRequestNumber: suspendedRequestNumber)
+        MockRequestHandler([
+            .success(TestFixtures.response(data: TestFixtures.sessionResponse())),
+            .success(TestFixtures.response(data: TestFixtures.creativeResponse())),
+            .success(TestFixtures.response(data: TestFixtures.validPNG))
+        ] + additional, suspendedRequestNumber: suspendedRequestNumber)
     }
 
     @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
