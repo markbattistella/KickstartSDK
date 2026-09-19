@@ -18,7 +18,7 @@ import SwiftUI
 //
 
 /// Wraps a large advertisement for presentation, marking its placement so the
-/// card offers a close action and reports its own visibility.
+/// card offers a close action.
 @available(iOS 18, macOS 15, tvOS 18, watchOS 11, visionOS 2, *)
 struct ExchangeLargeAdPresentation: View {
     let apiKey: String

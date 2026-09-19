@@ -30,7 +30,7 @@ final class ExchangeAdViewModel {
     @ObservationIgnored private var appRunState: ExchangeAdRunState?
     @ObservationIgnored private var viewabilityTask: Task<Void, Never>?
     @ObservationIgnored private var sceneIsActive = false
-    @ObservationIgnored private var isPlacementVisible = false
+    @ObservationIgnored private var isScrollVisible = false
 
     init(apiKey: String) {
         storefront = { await ExchangeStorefront.current }
@@ -179,7 +179,7 @@ final class ExchangeAdViewModel {
     func deactivate() {
         stopViewabilityTimer()
         sceneIsActive = false
-        isPlacementVisible = false
+        isScrollVisible = false
         isShowingInformation = false
         informationPresentation = nil
     }
@@ -189,8 +189,8 @@ final class ExchangeAdViewModel {
         reevaluateViewability()
     }
 
-    func setPlacementVisible(_ isVisible: Bool) {
-        isPlacementVisible = isVisible
+    func setScrollVisible(_ isVisible: Bool) {
+        isScrollVisible = isVisible
         reevaluateViewability()
     }
 
@@ -426,7 +426,7 @@ final class ExchangeAdViewModel {
 
     private var qualifiesForImpression: Bool {
         sceneIsActive
-            && isPlacementVisible
+            && isScrollVisible
             && isShowingInformation == false
             && presentation?.impressionToken != nil
             && visiblePresentation != nil

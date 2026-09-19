@@ -95,7 +95,7 @@ public struct ExchangeBannerAdView: View {
             model.setSceneActive(newPhase == .active)
         }
         .onScrollVisibilityChange(threshold: 0.5) { isVisible in
-            model.setPlacementVisible(isVisible)
+            model.setScrollVisible(isVisible)
         }
         .sheet(isPresented: $model.isShowingInformation, onDismiss: model.informationSheetDidDismiss) {
             if let presentation = model.informationPresentation {

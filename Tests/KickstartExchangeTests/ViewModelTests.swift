@@ -32,7 +32,7 @@ struct ViewModelTests {
 
         await model.load()
         model.setSceneActive(true)
-        model.setPlacementVisible(true)
+        model.setScrollVisible(true)
 
         let storeURL = try #require(await model.recordClick())
         #expect(storeURL.absoluteString == TestFixtures.previewStoreURL)
@@ -186,13 +186,13 @@ struct ViewModelTests {
         await model.load()
 
         model.setSceneActive(true)
-        model.setPlacementVisible(true)
+        model.setScrollVisible(true)
         try? await Task.sleep(for: .milliseconds(600))
-        model.setPlacementVisible(false)
+        model.setScrollVisible(false)
         try? await Task.sleep(for: .milliseconds(600))
         #expect(await handler.requests().count == 3)
 
-        model.setPlacementVisible(true)
+        model.setScrollVisible(true)
         #expect(await AsyncTestWaiter.until(timeout: .seconds(2)) {
             await handler.requests().count == 4
         })
@@ -220,9 +220,9 @@ struct ViewModelTests {
         await secondModel.load()
 
         firstModel.setSceneActive(true)
-        firstModel.setPlacementVisible(true)
+        firstModel.setScrollVisible(true)
         secondModel.setSceneActive(true)
-        secondModel.setPlacementVisible(true)
+        secondModel.setScrollVisible(true)
 
         #expect(await AsyncTestWaiter.until(timeout: .seconds(2)) {
             await handler.requests().count == 4

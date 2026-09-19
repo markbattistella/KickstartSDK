@@ -91,12 +91,6 @@ public struct ExchangeLargeAdView: View {
         }
         .onAppear {
             model.setSceneActive(scenePhase == .active)
-
-            // A presented advert has no scroll view to report for it, so
-            // appearing is the only visibility signal it will ever get.
-            if placement == .presented {
-                model.setPlacementVisible(true)
-            }
         }
         .onDisappear {
             model.deactivate()
@@ -105,11 +99,7 @@ public struct ExchangeLargeAdView: View {
             model.setSceneActive(newPhase == .active)
         }
         .onScrollVisibilityChange(threshold: 0.5) { isVisible in
-            guard placement == .inline else {
-                return
-            }
-
-            model.setPlacementVisible(isVisible)
+            model.setScrollVisible(isVisible)
         }
         .sheet(
             isPresented: $model.isShowingInformation,

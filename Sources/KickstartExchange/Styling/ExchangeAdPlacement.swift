@@ -9,11 +9,8 @@ import SwiftUI
 
 /// How a large advertisement is being shown.
 ///
-/// The placement decides two things the advert cannot work out for itself:
-/// whether it should offer a close action, and where its visibility signal
-/// comes from. Scrolling placements sit inside a scroll view and can use its
-/// visibility tracking; presented placements have no scroll view above them,
-/// so they report visibility as the presentation appears and disappears.
+/// A presented advert covers the host app's content, so it offers a close
+/// action; an inline advert sits among that content and doesn't need one.
 enum ExchangeAdPlacement: Equatable, Sendable {
     /// The advert is laid out as part of the surrounding content.
     case inline
